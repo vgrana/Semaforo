@@ -14,6 +14,21 @@
 int main(void) {
 
 	Semaforo inicializar;
+
+//CORRECCION:El SemaforoInicializar deberias llamarlo para todos tus semaforos.
+//Acá declaraste cuatro semáforos distintos, entonces deberías inicializar los 4.
+//Lo que podrías probar es como un Semaforo cambiar a medida que vas usando las funciones, 
+//es decir el mismo semaforo que lo uses varias veces
+// por ejemplo:
+// Semaforo miSem;
+// SemaforoInicializar(&miSem, Rojo )
+// SemaforoImprimir(&miSem);
+// SemaforoPrenderLuz(&miSem, Amarillo )
+// SemaforoImprimir(&miSem);
+// CambiarLuz(&miSem, Verde);
+// SemaforoImprimir(&miSem);
+
+	
 	SemaforoInicializar(&inicializar, Rojo );
 
 	Semaforo prenderLuz;
