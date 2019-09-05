@@ -7,30 +7,54 @@
 #include <stdio.h>
 
 #include "Semaforo1.h"
-//#define Rojo 0;
-//#define Amarillo 1;
-//#define Verde 2;
 
 int main(void) {
 
-	Semaforo inicializar;
-	SemaforoInicializar(&inicializar, Rojo );
+//	Semaforo inicializar;
+//
+//	SemaforoInicializar(&inicializar, Roja);
+//	SemaforoImprimir(&inicializar);
+//
+//	SemaforoPrenderLuz(&inicializar, Amarilla);
+//	SemaforoImprimir(&inicializar);
+//
+//	ApagarUnaLuz(&inicializar, Amarilla);
+//	SemaforoImprimir(&inicializar);
+//
+//	CambiarLuz(&inicializar, Verde);
+//	SemaforoImprimir(&inicializar);
+//
+//	CambiarLuz(&inicializar, Amarilla);
+//	SemaforoImprimir(&inicializar);
+//
+//	CambiarLuz(&inicializar, Roja);
+//	SemaforoImprimir(&inicializar);
 
-	Semaforo prenderLuz;
-	SemaforoPrenderLuz(&prenderLuz, Amarillo);
+//////////////////////////////////////////////////////////////////////////////////////////
+//                                 P   A   R  T  E    2                                //
+////////////////////////////////////////////////////////////////////////////////////////
 
-	Semaforo apagarUnaLuz;
-	ApagarUnaLuz(&apagarUnaLuz, Amarillo);
+	int tiempoLuzRoja = 4;
+	int tiempoLuzAmarilla = 2;
+	int tiempoLuzVerde = 5;
 
-	Semaforo cambiarLuz;
-	CambiarLuz(&cambiarLuz, Verde);
+	SemaforoSecuenciado estadoInicial;
 
-	Semaforo prenderOtraLuz;
-	SemaforoPrenderLuz(&prenderOtraLuz, Amarillo);
+	int contador = 0;
+	while (contador < 2) {
+		SemaforoInicializar(&estadoInicial, Verde, tiempoLuzVerde);
+		SemaforoImprimir(&estadoInicial);
 
-	SemaforoImprimir(&inicializar);
-	SemaforoImprimir(&prenderLuz);
-//	SemaforoImprimir(&apagarUnaLuz);
-	SemaforoImprimir(&cambiarLuz);
-//	SemaforoImprimir(&prenderOtraLuz);
+		CambiarLuz(&estadoInicial, Amarilla, tiempoLuzAmarilla);
+		SemaforoImprimir(&estadoInicial);
+
+		CambiarLuz(&estadoInicial, Roja, tiempoLuzRoja);
+		SemaforoImprimir(&estadoInicial);
+
+		CambiarLuz(&estadoInicial, Amarilla, tiempoLuzAmarilla);
+		SemaforoImprimir(&estadoInicial);
+
+		contador += 1;
+	}
+	return 0;
 }
