@@ -7,52 +7,42 @@
 #include <stdio.h>
 
 #include "Semaforo1.h"
+#include "SemaforoSecuenciado.h"
 
 int main(void) {
-
+//
 //	Semaforo inicializar;
 //
-//	SemaforoInicializar(&inicializar, Roja);
-//	SemaforoImprimir(&inicializar);
+//	SemaforoInicializar1(&inicializar, Roja);
+//	SemaforoImprimir1(&inicializar);
 //
-//	SemaforoPrenderLuz(&inicializar, Amarilla);
-//	SemaforoImprimir(&inicializar);
+//	SemaforoPrenderLuz1(&inicializar, Amarilla);
+//	SemaforoImprimir1(&inicializar);
 //
-//	ApagarUnaLuz(&inicializar, Amarilla);
-//	SemaforoImprimir(&inicializar);
+//	ApagarUnaLuz1(&inicializar, Amarilla);
+//	SemaforoImprimir1(&inicializar);
 //
-//	CambiarLuz(&inicializar, Verde);
-//	SemaforoImprimir(&inicializar);
+//	CambiarLuz1(&inicializar, Verde);
+//	SemaforoImprimir1(&inicializar);
 //
-//	CambiarLuz(&inicializar, Amarilla);
-//	SemaforoImprimir(&inicializar);
+//	CambiarLuz1(&inicializar, Amarilla);
+//	SemaforoImprimir1(&inicializar);
 //
-//	CambiarLuz(&inicializar, Roja);
-//	SemaforoImprimir(&inicializar);
+//	CambiarLuz1(&inicializar, Roja);
+//	SemaforoImprimir1(&inicializar);
 
 //////////////////////////////////////////////////////////////////////////////////////////
 //                                 P   A   R  T  E    2                                //
 ////////////////////////////////////////////////////////////////////////////////////////
 
-	int tiempoLuzRoja = 4;
-	int tiempoLuzAmarilla = 2;
-	int tiempoLuzVerde = 5;
 
-	SemaforoSecuenciado estadoInicial;
+	SemaforoSecuenciado semaforo;
 
 	int contador = 0;
-	while (contador < 2) {
-		SemaforoInicializar(&estadoInicial, Verde, tiempoLuzVerde);
-		SemaforoImprimir(&estadoInicial);
-
-		CambiarLuz(&estadoInicial, Amarilla, tiempoLuzAmarilla);
-		SemaforoImprimir(&estadoInicial);
-
-		CambiarLuz(&estadoInicial, Roja, tiempoLuzRoja);
-		SemaforoImprimir(&estadoInicial);
-
-		CambiarLuz(&estadoInicial, Amarilla, tiempoLuzAmarilla);
-		SemaforoImprimir(&estadoInicial);
+	EstadoInicial(&semaforo);
+	printf("inicializado\n");
+	while (contador < 10) {
+		cicloSemaforo(&semaforo);
 
 		contador += 1;
 	}

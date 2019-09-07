@@ -8,15 +8,6 @@
 #ifndef SEMAFORO_H_
 #define SEMAFORO_H_
 
-typedef struct SemaforoSecuenciado {
-	Semaforo sema;
-	int TiempoRoja;
-	int TiempoAmarilla;
-	int TiempoVerde;
-} SemaforoSecuenciado;
-//////////////////////////////////////////////////////////////////////////////////////////
-//                                 P   A   R  T  E    1                                //
-////////////////////////////////////////////////////////////////////////////////////////
 enum Color {
 	Roja, Amarilla, Verde
 };
@@ -30,29 +21,15 @@ typedef struct Semaforo {
 
 } Semaforo;
 
-//void EstadoInicial(Semaforo * sema);
-//void SemaforoInicializar(Semaforo * sema, int color);
-//void SemaforoPrenderLuz(Semaforo * sema, int color);
-//void ApagarUnaLuz(Semaforo * sema, int color);
-//void CambiarLuz(Semaforo * sema, int color);
-//void SemaforoImprimir(Semaforo * sema);
 //////////////////////////////////////////////////////////////////////////////////////////
-//                                 P   A   R  T  E    2                                //
+//                                 P   A   R  T  E    1                                //
 ////////////////////////////////////////////////////////////////////////////////////////
 
-typedef struct SemaforoSecuenciado {
-	Semaforo sema;
-	int TiempoRoja;
-	int TiempoAmarilla;
-	int TiempoVerde;
-} SemaforoSecuenciado;
+void EstadoInicial1(Semaforo * sema);
+void SemaforoInicializar1(Semaforo * sema, int color);
+void SemaforoPrenderLuz1(Semaforo * sema, int color);
+void ApagarUnaLuz1(Semaforo * sema, int color);
+void CambiarLuz1(Semaforo * sema, int color);
+void SemaforoImprimir1(Semaforo * sema);
 
-
-void EstadoInicial(SemaforoSecuenciado * semSec);
-void SemaforoInicializar(SemaforoSecuenciado * semSec, int Roja,
-		int AsignarTiempoLuzRoja);
-void SemaforoImprimir(SemaforoSecuenciado * semSec);
-void SemaforoPrenderLuz(SemaforoSecuenciado * semSec, int colorLuz,
-		int tiempoEncendido);
-void CambiarLuz(SemaforoSecuenciado * semSec, int colorLuz, int tiempoEncendido);
 #endif /* SEMAFORO_H_ */
